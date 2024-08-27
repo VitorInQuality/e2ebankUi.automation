@@ -1,0 +1,49 @@
+-------------------------------------------------------------------------------
+Test set: projeto.bankautomatizado.tests.AbrirContaClienteTests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 19.84 s <<< FAILURE! -- in projeto.bankautomatizado.tests.AbrirContaClienteTests
+projeto.bankautomatizado.tests.AbrirContaClienteTests.cpfEmBranco -- Time elapsed: 7.775 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Erro na verificaÃ§Ã£o do CPF> but was: <Erro na verificação do CPF>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at projeto.bankautomatizado.metodos.MetodosWeb.validarTexto(MetodosWeb.java:37)
+	at projeto.bankautomatizado.pages.HomePage.acessarAbrirConta(HomePage.java:43)
+	at projeto.bankautomatizado.tests.AbrirContaClienteTests.cpfEmBranco(AbrirContaClienteTests.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+projeto.bankautomatizado.tests.AbrirContaClienteTests.cpfNaoConsultor -- Time elapsed: 5.799 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <O CPF fornecido nÃ£o Ã© de um funcionÃ¡rio.> but was: <O CPF fornecido não é de um funcionário.>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at projeto.bankautomatizado.metodos.MetodosWeb.validarTexto(MetodosWeb.java:37)
+	at projeto.bankautomatizado.pages.HomePage.acessarAbrirConta(HomePage.java:41)
+	at projeto.bankautomatizado.tests.AbrirContaClienteTests.cpfNaoConsultor(AbrirContaClienteTests.java:37)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+projeto.bankautomatizado.tests.AbrirContaClienteTests.cpfJaCadastrado -- Time elapsed: 6.192 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <O CPF fornecido jÃ¡ estÃ¡ registrado como cliente.> but was: <O CPF fornecido já está registrado como cliente.>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at projeto.bankautomatizado.metodos.MetodosWeb.validarTexto(MetodosWeb.java:37)
+	at projeto.bankautomatizado.pages.HomePage.acessarAbrirConta(HomePage.java:45)
+	at projeto.bankautomatizado.tests.AbrirContaClienteTests.cpfJaCadastrado(AbrirContaClienteTests.java:47)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

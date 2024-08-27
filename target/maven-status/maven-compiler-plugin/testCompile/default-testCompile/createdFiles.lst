@@ -1,0 +1,9 @@
+projeto\bankautomatizado\tests\LoginTests.class
+projeto\bankautomatizado\pages\FormPreencherCadastroESenhaPage.class
+projeto\bankautomatizado\pages\HomePage.class
+projeto\bankautomatizado\metodos\MetodosWeb.class
+projeto\bankautomatizado\drivers\Drivers.class
+projeto\bankautomatizado\elementos\ElementosWeb.class
+projeto\bankautomatizado\tests\AbrirContaClienteTests.class
+projeto\bankautomatizado\tests\paginaPrincipalHomeTests.class
+projeto\bankautomatizado\runner\Executa.class
