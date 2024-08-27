@@ -10,9 +10,11 @@ import projeto.bankautomatizado.gerador.GerarSenha;
 import projeto.bankautomatizado.pages.FormPreencherCadastroESenhaPage;
 import projeto.bankautomatizado.pages.HomePage;
 import projeto.bankautomatizado.runner.Executa;
+import projeto.bankautomatizado.utils.MassaDeDados;
 
 public class AbrirContaClienteTests {
 
+	// Pages
 	HomePage home = new HomePage();
 	FormPreencherCadastroESenhaPage formulario = new FormPreencherCadastroESenhaPage();
 
@@ -21,6 +23,9 @@ public class AbrirContaClienteTests {
 	GerarDadosProfissionais profissionais = new GerarDadosProfissionais();
 	GerarSenha senha = new GerarSenha();
 
+	// Massa
+	MassaDeDados massa = new MassaDeDados();
+
 	@BeforeEach
 	public void antesDoTeste() {
 		Executa.abrirNavegador();
@@ -28,12 +33,12 @@ public class AbrirContaClienteTests {
 
 	@AfterEach
 	public void depoisDoTeste() {
-		// Executa.fecharNavegador();
+		Executa.fecharNavegador();
 	}
 
 	@Test
 	public void abrirContaClienteComSucesso() {
-		home.acessarAbrirConta("450.486.261-90");
+		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
 				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
 				pessoais.number, pessoais.state, pessoais.city);
@@ -65,7 +70,7 @@ public class AbrirContaClienteTests {
 
 	@Test
 	public void abrirContaContaDadosPessoaisEmBranco() {
-		home.acessarAbrirConta("450.486.261-84");
+		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais("", "", "", "", "", "", "", "", "", "", "");
 		formulario.preencherDadosProfissionais(profissionais.actualGroup, profissionais.firstGroup, profissionais.job,
 				profissionais.salary, profissionais.professionalEmail);
@@ -74,7 +79,7 @@ public class AbrirContaClienteTests {
 
 	@Test
 	public void abrirContaComIdadeNaoPermitida() {
-		home.acessarAbrirConta("450.486.261-85");
+		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
 				pessoais.dataBirthdayMinor, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
 				pessoais.number, pessoais.state, pessoais.city);
@@ -85,7 +90,7 @@ public class AbrirContaClienteTests {
 
 	@Test
 	public void abrirContaInformandoEmailProfissionalDiferente() {
-		home.acessarAbrirConta("450.486.261-86");
+		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
 				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
 				pessoais.number, pessoais.state, pessoais.city);
@@ -96,7 +101,7 @@ public class AbrirContaClienteTests {
 
 	@Test
 	public void abrirContaComDadosProfissionaisEmBranco() {
-		home.acessarAbrirConta("450.486.261-87");
+		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
 				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
 				pessoais.number, pessoais.state, pessoais.city);
@@ -106,7 +111,7 @@ public class AbrirContaClienteTests {
 
 	@Test
 	public void abrirContaComDadosProfissionaisInvalidos() {
-		home.acessarAbrirConta("450.486.261-86");
+		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
 				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
 				pessoais.number, pessoais.state, pessoais.city);
@@ -116,7 +121,7 @@ public class AbrirContaClienteTests {
 
 	@Test
 	public void abrirContaComSenhaDiferenteDaConfirmacaoDeSenha() {
-		home.acessarAbrirConta("450.486.261-86");
+		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
 				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
 				pessoais.number, pessoais.state, pessoais.city);
@@ -127,7 +132,7 @@ public class AbrirContaClienteTests {
 
 	@Test
 	public void abrirContaComSenhaEConfirmacaoDeSenhaEmBranco() {
-		home.acessarAbrirConta("450.486.261-86");
+		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
 				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
 				pessoais.number, pessoais.state, pessoais.city);
@@ -138,7 +143,7 @@ public class AbrirContaClienteTests {
 
 	@Test
 	public void abrirContaComSenhaSequencial() {
-		home.acessarAbrirConta("450.486.261-86");
+		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
 				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
 				pessoais.number, pessoais.state, pessoais.city);
