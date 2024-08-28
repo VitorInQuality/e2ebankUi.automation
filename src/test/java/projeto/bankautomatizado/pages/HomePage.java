@@ -47,7 +47,6 @@ public class HomePage {
 	}
 
 	// ELEMENTOS LOGIN
-	By btnLogin = By.xpath("//button[text()='Login']");
 	By usuario = By.xpath("//input[@name='username']");
 	By senha = By.xpath("//input[@name='password']");
 	By msgErrorLogin = By.xpath("//span[text()='Usuário ou senha incorretos']");
@@ -55,7 +54,7 @@ public class HomePage {
 	By tituloSaldoDisponivel = By.xpath("//h1[text()='Saldo disponível:']");
 
 	public void acessarlogin() {
-		metodo.clicar(btnLogin);
+		metodo.clicar(elemento.btnLogin);
 		String urlPaginaLogin = "http://52.2.114.98/login";
 		metodo.validarUrl(urlPaginaLogin);
 	}
