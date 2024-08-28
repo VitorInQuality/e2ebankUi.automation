@@ -3,12 +3,20 @@ package projeto.bankautomatizado.pages;
 import org.openqa.selenium.By;
 
 import projeto.bankautomatizado.elementos.ElementosWeb;
+import projeto.bankautomatizado.gerador.GerarDadosPessoais;
+import projeto.bankautomatizado.gerador.GerarDadosProfissionais;
+import projeto.bankautomatizado.gerador.GerarSenha;
 import projeto.bankautomatizado.metodos.MetodosWeb;
 
 public class FormPreencherCadastroESenhaPage {
 
 	ElementosWeb elemento = new ElementosWeb();
 	MetodosWeb metodo = new MetodosWeb();
+
+	// GERADORES DE MASSA
+	GerarDadosPessoais pessoais = new GerarDadosPessoais();
+	GerarDadosProfissionais profissionais = new GerarDadosProfissionais();
+	GerarSenha senha = new GerarSenha();
 
 	// ELEMENTOS DADOS PESSOAIS
 	public By firstName = By.name("firstName");
@@ -24,6 +32,28 @@ public class FormPreencherCadastroESenhaPage {
 	public By state = By.name("state");
 	public By city = By.name("city");
 	public By btnAvancar = By.xpath("//button[text()='Avançar']");
+
+	/**
+	 * Esse método preenche os dados pessoais com uma massa automatizada
+	 */
+	public void preencherDadosPessoais() {
+		metodo.esperarPorElemento(firstName);
+		metodo.preencherTexto(firstName, pessoais.firstName);
+		metodo.preencherTexto(lastName, pessoais.lastName);
+		metodo.preencherTexto(email, pessoais.email);
+		metodo.clicar(dataBirthday);
+		metodo.preencherTexto(dataBirthday, pessoais.dataBirthdayAdult);
+		metodo.preencherTexto(this.rg, pessoais.rg);
+		metodo.clicar(phoneNumber);
+		metodo.preencherTexto(phoneNumber, pessoais.phoneNumber);
+		metodo.preencherTexto(address, pessoais.address);
+		metodo.clicar(this.cep);
+		metodo.preencherTexto(this.cep, pessoais.cep);
+		metodo.preencherTexto(number, pessoais.number);
+		metodo.preencherTexto(state, pessoais.state);
+		metodo.preencherTexto(city, pessoais.city);
+		metodo.clicar(btnAvancar);
+	}
 
 	public void preencherDadosPessoais(String primeiroNome, String segundoNome, String emailPessoal,
 			String dataNascimento, String rg, String telefone, String endereco, String cep, String numeroCasa,
@@ -56,6 +86,21 @@ public class FormPreencherCadastroESenhaPage {
 	public By btnEnviar = By.id("btnEnviar");
 	public By btnVoltar = By.id("btnVoltar");
 
+	/**
+	 * Esse Método preenche os dados profissionais com uma massa automatica
+	 */
+	public void preencherDadosProfissionais() {
+		metodo.esperarPorElemento(actualGroup);
+		metodo.preencherTexto(actualGroup, profissionais.actualGroup);
+		metodo.preencherTexto(firstGroup, profissionais.firstGroup);
+		metodo.preencherTexto(job, profissionais.job);
+		metodo.preencherTexto(salary, profissionais.salary);
+		metodo.preencherTexto(professionalEmail, profissionais.professionalEmail);
+		metodo.esperarPorElemento(btnEnviar);
+		metodo.clicar(btnEnviar);
+
+	}
+
 	public void preencherDadosProfissionais(String grupoAtual, String primeroGrupo, String cargo, String salario,
 			String emailProfissional) {
 		metodo.esperarPorElemento(actualGroup);
@@ -74,6 +119,16 @@ public class FormPreencherCadastroESenhaPage {
 	public By confirmPassword = By.name("confirmPassword");
 	public By btnCancelar = By.xpath("//button[text()='Cancelar']");
 	public By btnCadastrar = By.xpath("//button[text()='Cadastrar']");
+
+	/**
+	 * Esse preencher a senha e confirmação de senha com massa automatica
+	 */
+	public void preencherCadastroSenha() {
+		metodo.esperarPorElemento(password);
+		metodo.preencherTexto(password, senha.getPassword());
+		metodo.preencherTexto(confirmPassword, senha.getConfirmPassword());
+		metodo.clicar(btnCadastrar);
+	}
 
 	public void preencherCadastroSenha(String senha, String confirmarSenha) {
 		metodo.esperarPorElemento(password);

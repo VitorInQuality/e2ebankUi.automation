@@ -39,12 +39,9 @@ public class AbrirContaClienteTests {
 	@Test
 	public void abrirContaClienteComSucesso() {
 		home.acessarAbrirConta(massa.obterEExcluirCpf());
-		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
-				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
-				pessoais.number, pessoais.state, pessoais.city);
-		formulario.preencherDadosProfissionais(profissionais.actualGroup, profissionais.firstGroup, profissionais.job,
-				profissionais.salary, profissionais.professionalEmail);
-		formulario.preencherCadastroSenha(senha.getPassword(), senha.getConfirmPassword());
+		formulario.preencherDadosPessoais();
+		formulario.preencherDadosProfissionais();
+		formulario.preencherCadastroSenha();
 
 	}
 
@@ -72,9 +69,8 @@ public class AbrirContaClienteTests {
 	public void abrirContaContaDadosPessoaisEmBranco() {
 		home.acessarAbrirConta(massa.obterEExcluirCpf());
 		formulario.preencherDadosPessoais("", "", "", "", "", "", "", "", "", "", "");
-		formulario.preencherDadosProfissionais(profissionais.actualGroup, profissionais.firstGroup, profissionais.job,
-				profissionais.salary, profissionais.professionalEmail);
-		formulario.preencherCadastroSenha(senha.getPassword(), senha.getConfirmPassword());
+		formulario.preencherDadosProfissionais();
+		formulario.preencherCadastroSenha();
 	}
 
 	@Test
@@ -83,72 +79,56 @@ public class AbrirContaClienteTests {
 		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
 				pessoais.dataBirthdayMinor, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
 				pessoais.number, pessoais.state, pessoais.city);
-		formulario.preencherDadosProfissionais(profissionais.actualGroup, profissionais.firstGroup, profissionais.job,
-				profissionais.salary, profissionais.professionalEmail);
-		formulario.preencherCadastroSenha(senha.getPassword(), senha.getConfirmPassword());
+		formulario.preencherDadosProfissionais();
+		formulario.preencherCadastroSenha();
 	}
 
 	@Test
 	public void abrirContaInformandoEmailProfissionalDiferente() {
 		home.acessarAbrirConta(massa.obterEExcluirCpf());
-		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
-				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
-				pessoais.number, pessoais.state, pessoais.city);
+		formulario.preencherDadosPessoais();
 		formulario.preencherDadosProfissionais(profissionais.actualGroup, profissionais.firstGroup, profissionais.job,
 				profissionais.salary, "rodri@gmail.com");
-		formulario.preencherCadastroSenha(senha.getPassword(), senha.getConfirmPassword());
+		formulario.preencherCadastroSenha();
 	}
 
 	@Test
 	public void abrirContaComDadosProfissionaisEmBranco() {
 		home.acessarAbrirConta(massa.obterEExcluirCpf());
-		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
-				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
-				pessoais.number, pessoais.state, pessoais.city);
+		formulario.preencherDadosPessoais();
 		formulario.preencherDadosProfissionais("", "", "", "", "");
-		formulario.preencherCadastroSenha(senha.getPassword(), senha.getConfirmPassword());
+		formulario.preencherCadastroSenha();
 	}
 
 	@Test
 	public void abrirContaComDadosProfissionaisInvalidos() {
 		home.acessarAbrirConta(massa.obterEExcluirCpf());
-		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
-				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
-				pessoais.number, pessoais.state, pessoais.city);
+		formulario.preencherDadosPessoais();
 		formulario.preencherDadosProfissionais("@", "@", "@", profissionais.salary, profissionais.professionalEmail);
-		formulario.preencherCadastroSenha(senha.getPassword(), senha.getConfirmPassword());
+		formulario.preencherCadastroSenha();
 	}
 
 	@Test
 	public void abrirContaComSenhaDiferenteDaConfirmacaoDeSenha() {
 		home.acessarAbrirConta(massa.obterEExcluirCpf());
-		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
-				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
-				pessoais.number, pessoais.state, pessoais.city);
-		formulario.preencherDadosProfissionais(profissionais.actualGroup, profissionais.firstGroup, profissionais.job,
-				profissionais.salary, profissionais.professionalEmail);
-		formulario.preencherCadastroSenha(senha.getPassword(), "Teste521@");
+		formulario.preencherDadosPessoais();
+		formulario.preencherDadosProfissionais();
+		formulario.preencherCadastroSenha("Teste521#", "Teste521@");
 	}
 
 	@Test
 	public void abrirContaComSenhaEConfirmacaoDeSenhaEmBranco() {
 		home.acessarAbrirConta(massa.obterEExcluirCpf());
-		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
-				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
-				pessoais.number, pessoais.state, pessoais.city);
-		formulario.preencherDadosProfissionais(profissionais.actualGroup, profissionais.firstGroup, profissionais.job,
-				profissionais.salary, profissionais.professionalEmail);
+		formulario.preencherDadosPessoais();
+		formulario.preencherDadosProfissionais();
 		formulario.preencherCadastroSenha("", "");
 	}
 
 	@Test
 	public void abrirContaComSenhaSequencial() {
 		home.acessarAbrirConta(massa.obterEExcluirCpf());
-		formulario.preencherDadosPessoais(pessoais.firstName, pessoais.lastName, pessoais.email,
-				pessoais.dataBirthdayAdult, pessoais.rg, pessoais.phoneNumber, pessoais.address, pessoais.cep,
-				pessoais.number, pessoais.state, pessoais.city);
-		formulario.preencherDadosProfissionais(profissionais.actualGroup, profissionais.firstGroup, profissionais.job,
-				profissionais.salary, profissionais.professionalEmail);
+		formulario.preencherDadosPessoais();
+		formulario.preencherDadosProfissionais();
 		formulario.preencherCadastroSenha("123aaaA@", "123aaaA@");
 	}
 

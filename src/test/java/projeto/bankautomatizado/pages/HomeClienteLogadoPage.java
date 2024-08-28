@@ -2,11 +2,13 @@ package projeto.bankautomatizado.pages;
 
 import org.openqa.selenium.By;
 
+import projeto.bankautomatizado.elementos.ElementosWeb;
 import projeto.bankautomatizado.metodos.MetodosWeb;
 
 public class HomeClienteLogadoPage {
 
 	MetodosWeb metodo = new MetodosWeb();
+	ElementosWeb elemento = new ElementosWeb();
 
 	By btnMenuSuaConta = By.xpath("//button[text()='Sua Conta']");
 	By btnAtualizarDados = By.xpath("//a[text()='Atualizar dados']");
@@ -14,7 +16,7 @@ public class HomeClienteLogadoPage {
 
 	public void acessarMenuSuaConta() {
 
-		metodo.esperarPorElemento(btnMenuSuaConta, 15);
+		metodo.esperarPorElemento(btnMenuSuaConta, 20);
 		metodo.arrastarCursor(btnMenuSuaConta);
 	}
 
@@ -27,9 +29,11 @@ public class HomeClienteLogadoPage {
 
 	public void sairDaConta() {
 		acessarMenuSuaConta();
-		metodo.esperarPorElemento(btnSair, 15);
+		metodo.esperarPorElemento(btnSair, 20);
 		metodo.clicar(btnSair);
-		metodo.validarUrl("http://52.2.114.98/");
+		String texto = "Login";
+		metodo.esperarPorElemento(elemento.btnLogin);
+		metodo.validarTexto(elemento.btnLogin, texto);
 
 	}
 

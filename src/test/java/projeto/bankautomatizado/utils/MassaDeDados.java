@@ -60,8 +60,6 @@ public class MassaDeDados {
 						if (cpf != null) {
 							// Remove a linha que contém o CPF da planilha
 							abaPlanilha.removeRow(linha);
-							// Reorganiza as linhas para remover lacunas deixadas pela remoção
-							reorganizarLinhas(abaPlanilha, i);
 
 							// Salva as alterações no arquivo Excel
 							outFile = new FileOutputStream(new File(caminhoArquivoExcel));
@@ -95,18 +93,4 @@ public class MassaDeDados {
 		return null;
 	}
 
-	/**
-	 * Reorganiza as linhas da planilha após a remoção de uma linha para evitar
-	 * lacunas.
-	 *
-	 * @param abaPlanilha   A planilha onde as linhas serão reorganizadas.
-	 * @param linhaRemovida O índice da linha que foi removida.
-	 */
-	private void reorganizarLinhas(Sheet abaPlanilha, int linhaRemovida) {
-		int ultimaLinha = abaPlanilha.getLastRowNum(); // Obtém o índice da última linha
-		// Se a linha removida não for a última, move as linhas abaixo para cima
-		if (linhaRemovida < ultimaLinha) {
-			abaPlanilha.shiftRows(linhaRemovida + 1, ultimaLinha, -1);
-		}
-	}
 }
