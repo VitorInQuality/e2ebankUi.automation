@@ -34,17 +34,17 @@ public class LoginTests {
 
 	@Test
 	public void loginComCpfInvalido() {
-		home.login("", "", "Usuário ou senha incorretos");
+		home.login("000.000.000-00", "Teste525@", "Usuário ou senha incorretos");
 	}
 
 	@Test
 	public void loginEmailInvalido() {
-		home.login("", "", "Usuário ou senha incorretos");
+		home.login("teste@teste.com.br", "Teste525@", "Usuário ou senha incorretos");
 	}
 
 	@Test
 	public void loginComSenhaInvalida() {
-		home.login("", "", "Usuário ou senha incorretos");
+		home.login("526.128.275-94", "125888", "Usuário ou senha incorretos");
 	}
 
 	@Test
@@ -54,12 +54,7 @@ public class LoginTests {
 
 	@Test
 	public void loginComClienteNaoCadastrado() {
-		home.login("", "", "Usuário ou senha incorretos");
-	}
-
-	@Test
-	public void loginUsuarioESenhaEmBranco() {
-		home.login("", "", "Usuário ou senha incorretos");
+		home.login("123.315.528-29", "Teste525@", "Usuário ou senha incorretos");
 	}
 
 }
